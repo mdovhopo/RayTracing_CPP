@@ -16,17 +16,12 @@
 int     main(void)
 {
     rt::vec3 v1(1, 2, 3), v2(1.3, 4.1, 0.1);
-    rt::Shape *shape = new rt::Sphere(v1, v2, 1, 1, 100);
 
-    std::vector<rt::Shape*> v;
+    float tnear = 0;
 
-    v.push_back(shape);
+    std::vector<std::unique_ptr<rt::Shape>> v;
 
-    std::cout << v[0]->intersect(rt::Ray(v1, v2));
-    std::cout << v[0]->origin << std::endl;
-    std::cout << v[0]->radius << std::endl;
-    std::cout << v[0]->color << std::endl;
-    std::cout << v[0]->reflection << std::endl;
-    std::cout << v[0]->specular << std::endl;
+    v.emplace_back(new rt::Sphere(v1, v2, 1, 1, 100));
+    std::cout << v[0]->intersect(rt::Ray(v1, v2), tnear) << std::endl;
     return (0);
 }

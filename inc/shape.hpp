@@ -28,7 +28,7 @@ namespace rt {
             Shape()
             : origin(vec3()), color(vec3(1)), reflection(0), specular(-1) {}
             virtual ~Shape() {}
-            virtual bool intersect(const Ray& r) = 0;
+ 	    virtual bool intersect(const Ray& r, float& tnear) = 0;
     };
 
     class Sphere : public Shape {
@@ -36,7 +36,7 @@ namespace rt {
         float radius;
         Sphere(vec3& o_, vec3& c_, float rad_, float refl_, float spec_) :
         Shape(o_, c_, refl_, spec_), radius(rad_) {}
-        bool    intersect(const Ray& r);
+        bool    intersect(const Ray& r, float& tnear);
         ~Sphere() {}
     };
 }

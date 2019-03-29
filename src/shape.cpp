@@ -12,8 +12,9 @@
 
 #include <shape.hpp>
 
-bool       rt::Sphere::intersect(const Ray& r)
+bool       rt::Sphere::intersect(const Ray& r, float& tnear)
 {
     std::cout << "Shpere intersection\n";
-    return (true);
+    std::cout << this->radius << std::endl;
+    return true;
 }
