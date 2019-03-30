@@ -1,7 +1,7 @@
 # RTv1_CPP
 
 ----
-Simple RayTracing program is written in C++11.
+Simple RayTracing program written in C++11.
 
 Project written for macOS High Sierra 10.13.3 and compiled with clang++ Apple LLVM version 9.0.0 (clang-900.0.39.2)
 
