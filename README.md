@@ -13,8 +13,7 @@ Project written for macOS High Sierra 10.13.3 and compiled with clang++ Apple LL
 ----
 ## Compilation & running
 
-    make re
-
+    make
 ----
 ## TODO
 
