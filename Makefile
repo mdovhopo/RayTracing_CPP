@@ -6,15 +6,26 @@
 #    By: mdovhopo <mdovhopo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/28 13:12:30 by mdovhopo          #+#    #+#              #
-#    Updated: 2019/03/28 16:49:59 by mdovhopo         ###   ########.fr        #
+#    Updated: 2019/03/30 19:49:30 by mdovhopo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = g++
+CC = clang++
 CFLAGS = -c -Wall
 
 INCLUDE_DIRS = 	-I . \
-			-I inc/
+			-I inc/	\
+			-I frameworks/SDL2_image.framework/Versions/A/Headers \
+			-I frameworks/SDL2.framework/Versions/A/Headers \
+
+FRAMEWORKS = -framework OpenCL \
+			-F frameworks \
+			-rpath frameworks \
+			-framework SDL2 \
+			-framework SDL2_image \
+
+STANDARTS = -std=c++11 -stdlib=libc++
+
 SOURCE_DIR = src
 
 INCLUDES =	inc/rtv1.hpp \
@@ -22,20 +33,29 @@ INCLUDES =	inc/rtv1.hpp \
 
 SOURCES = $(addprefix $(SOURCE_DIR)/, 	main.cpp \
 										vec3.cpp \
-										shape.cpp)
+										compute_light.cpp \
+										math_util.cpp \
+										sdl_abstraction.cpp \
+										get_shape_normal.cpp \
+										trace.cpp \
+										shape_intersection.cpp)
+
 OBJECTS = $(SOURCES:.cpp=.o)
 
-FLAGS = -std=c++11 #-Wall -Wextra -Werror
-
 EXECUTABLE = RTv1
+
+.PHONY: all multi
+
+multi:
+	@$(MAKE) -j8 all
 
 all: $(SOURCES) $(EXECUTABLE)
 	
 $(EXECUTABLE): $(OBJECTS) 
-	$(CC) $(FLAGS) $(INCLUDE_DIRS) $(OBJECTS) -o $@
+	$(CC) $(STANDARTS) $(FLAGS) $(INCLUDE_DIRS) $(OBJECTS) $(FRAMEWORKS) -o $@ 
 
 .cpp.o: $(INCLUDES)
-	$(CC) $(FLAGS) $(INCLUDE_DIRS) $(CFLAGS) $< -o $@
+	$(CC) $(STANDARTS) $(FLAGS) $(INCLUDE_DIRS) $(CFLAGS) $< -o $@
 
 clean:
 	@/bin/rm -f $(OBJECTS)
@@ -43,4 +63,4 @@ clean:
 fclean: clean
 	@/bin/rm -f $(EXECUTABLE)
 
-re: fclean all
+re: fclean multi
