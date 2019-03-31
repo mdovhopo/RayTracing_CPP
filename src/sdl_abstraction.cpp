@@ -6,7 +6,7 @@
 /*   By: mdovhopo <mdovhopo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 17:19:58 by mdovhopo          #+#    #+#             */
-/*   Updated: 2019/03/30 18:15:48 by mdovhopo         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:43:01 by mdovhopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ uint32_t    rt::SDL::getWidth()
 
 uint32_t    rt::SDL::getHeight()
 {
-    return width;
+    return height;
 }
 
 float       rt::SDL::getAspectRatio()
