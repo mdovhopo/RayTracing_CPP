@@ -6,7 +6,7 @@
 /*   By: mdovhopo <mdovhopo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 17:19:58 by mdovhopo          #+#    #+#             */
-/*   Updated: 2019/03/31 15:43:01 by mdovhopo         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:47:03 by mdovhopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ rt::SDL::SDL(const char * name, const uint32_t w_, const uint32_t h_) : width(w_
 rt::SDL::~SDL()
 {
     SDL_DestroyWindow(window);
+    SDL_Quit();
 }
 
 uint32_t    rt::SDL::getWidth()
