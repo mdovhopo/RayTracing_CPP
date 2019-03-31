@@ -23,12 +23,12 @@ float       rt::PointLight::compute_light(rt::Ray ray, rt::vec3 v, float spec,
     {
         float n_dot_l = ray.dir.dot(l);
         if (n_dot_l > 0)
-            light += this->intensivity * n_dot_l / (rt::length(ray.dir) * rt::length(l));
+            light += this->intensity * n_dot_l / (rt::length(ray.dir) * rt::length(l));
         if (spec > 0)
         {
             rt::vec3 r =  ray.dir * (2.0f * ray.dir.dot(l)) - l;
             float ray_dot_v = r.dot(v);
-            light += this->intensivity * pow(ray_dot_v / (rt::length(r) * rt::length(v)), spec);
+            light += this->intensity * pow(ray_dot_v / (rt::length(r) * rt::length(v)), spec);
         }
     }
     return light;

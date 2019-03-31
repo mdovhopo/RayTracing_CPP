@@ -6,7 +6,7 @@
 /*   By: mdovhopo <mdovhopo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 16:43:50 by mdovhopo          #+#    #+#             */
-/*   Updated: 2019/03/30 16:57:17 by mdovhopo         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:51:34 by mdovhopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ namespace rt {
     class PointLight {
         public:
         vec3   origin; 
-        float  intensivity;
-        PointLight(vec3 o_, float intens_) : origin(o_), intensivity(intens_) {}
+        float  intensity;
+        PointLight(vec3 o_, float intens_) : origin(o_), intensity(intens_) {}
         float compute_light(rt::Ray ray, rt::vec3 v, float spec,
                   const std::vector<std::unique_ptr<rt::Shape>>& shapes);
     };
