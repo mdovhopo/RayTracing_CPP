@@ -73,4 +73,5 @@ void        rt_loop(rt::SDL& sdl, const std::vector<std::unique_ptr<rt::Shape>>&
     }
     for (int i = 0; i < THREAD_NUM; i++)
         threads[i].join();
+    delete [] threads_ids;
 }
