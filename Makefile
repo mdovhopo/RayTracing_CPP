@@ -6,20 +6,19 @@
 #    By: mdovhopo <mdovhopo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/28 13:12:30 by mdovhopo          #+#    #+#              #
-#    Updated: 2019/03/30 19:49:30 by mdovhopo         ###   ########.fr        #
+#    Updated: 2019/05/21 15:15:12 by mdovhopo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang++
-CFLAGS = -c -Wall
+CFLAGS = -c -Wall -O3
 
 INCLUDE_DIRS = 	-I . \
 			-I inc/	\
 			-I frameworks/SDL2_image.framework/Versions/A/Headers \
 			-I frameworks/SDL2.framework/Versions/A/Headers \
 
-FRAMEWORKS = -framework OpenCL \
-			-F frameworks \
+FRAMEWORKS = -F frameworks \
 			-rpath frameworks \
 			-framework SDL2 \
 			-framework SDL2_image \
