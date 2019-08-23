@@ -1,4 +1,4 @@
-# RTv1_CPP
+# RayTracing_CPP
 
 ----
 Simple RayTracing program written in C++11.
